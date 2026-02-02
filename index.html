@@ -122,9 +122,7 @@
     display:none;
     z-index:150;
 }
-.to-top.show{
-    display:flex;
-}
+.to-top.show{display:flex}
 
 body{
     margin:0;
@@ -142,16 +140,8 @@ a{text-decoration:none;color:inherit}
     background:#1c1c1c;
     border-radius:6px;
 }
-.breadcrumb{
-    font-size:13px;
-    color:#aaa;
-}
-.title{
-    text-align:center;
-    font-size:22px;
-    margin:10px 0;
-    cursor:pointer;
-}
+.breadcrumb{font-size:13px;color:#aaa;}
+.title{text-align:center;font-size:22px;margin:10px 0;cursor:pointer;}
 .chapter{text-align:center;font-size:18px;}
 .update{text-align:center;font-size:13px;color:#aaa;margin:8px 0;}
 .tip{
@@ -211,28 +201,6 @@ img{
     font-size:14px;
     cursor:pointer;
 }
-
-/* ===== POPUP ===== */
-.popup{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.85);
-    display:none;
-}
-.popup-list{
-    max-width:420px;
-    margin:60px auto;
-    background:#3a3a3a;
-    border-radius:8px;
-}
-.item{
-    padding:14px;
-    border-bottom:1px solid #555;
-    cursor:pointer;
-}
-.item:hover{background:#4a4a4a;}
-.active{color:#4fc3f7;}
-.close{text-align:center;padding:12px;background:#222;}
 </style>
 </head>
 
@@ -252,42 +220,37 @@ img{
   <source src="nhacnen.mp3" type="audio/mpeg">
 </audio>
 
-<div class="top-box">
 
-    <!-- TRANG CHỦ -->
+<div class="top-box">
     <div class="breadcrumb">
         <a href="https://dichtruyendrop.github.io/Change--Jinyuan--Ss2/?fbclid=IwdGRjcAPXFc9jbGNrA9cVyWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHo73zOKFuyd71hD2NUtlbjJ3pyQf5_dML7Q5Sk6flq4p18ggBlZgSYTr3cNL_aem_1Dr_28vmKZ6-TW69VtHPiA">Trang Chủ</a> /
         Change (Jinyuan) Ss2 / Chương 64.2
     </div>
 
-    <!-- TÊN TRUYỆN -->
     <div class="title" onclick="goStory()">
         Change (Jinyuan) Ss2
     </div>
 
     <div class="chapter">- Chapter 64.2 -</div>
     
-    <div class="view-box">
+        <div class="view-box">
    <div class="rainbow-text">Lượt Xem</div>
     <img class="view-img"
          src="https://visitor-badge.laobi.icu/badge?page_id=chapter64.2&left_text=&left_color=0000000"
          alt="">
 </div>
     
-    <div class="update">Cập nhật: 17:20 (21/1/2026)</div>
+    <div class="update">Cập nhật: 17:20   (21/1/2026)</div>
 
-    <div class="tip">
-        Dùng ← → để chuyển chapter
-    </div>
+    <div class="tip">Dùng ← → để chuyển chapter</div>
 
     <div class="top-nav">
         <a class="prev" onclick="chapTruoc()">← Chap Trước</a>
-        <a class="next" onclick="het()">Chap Sau →</a>
+        <a class="next" onclick="chapSau()">Chap Sau →</a>
     </div>
 </div>
 
 <!-- ===== ẢNH ===== -->
-
 <img src="https://raw.githubusercontent.com/DichTruyenDrop/T-olao/refs/heads/main/0.9.jpg">
 <img src="https://raw.githubusercontent.com/DichTruyenDrop/Gif/refs/heads/main/1.jpg">
 <img src="1.jpg">
@@ -321,73 +284,55 @@ img{
 
 
 
-
-
-
 <!-- ===== BOTTOM BAR ===== -->
 <div class="bottom-bar" id="bar">
-    <a href="https://dichtruyendrop.github.io/Change--Jinyuan--Ss2/?fbclid=IwdGRjcAPXFc9jbGNrA9cVyWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHo73zOKFuyd71hD2NUtlbjJ3pyQf5_dML7Q5Sk6flq4p18ggBlZgSYTr3cNL_aem_1Dr_28vmKZ6-TW69VtHPiA">🏠</a>
+    <a href="https://dichtruyendrop.github.io/DichTruyenDrop/?fbclid=IwT01FWAPttRRleHRuA2FlbQIxMABzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR5EtCu0G_W454YNT8TstVBUyWJFHVL00KZs3aVNSNjOtnmJsfaSmOHLTKSzlQ_aem_oULb1L8HsnSoU4P-I6anxQ">🏠</a>
     <a onclick="chapTruoc()">⬅</a>
 
-    <div class="chapter-box" onclick="openChap()">Chapter 63.2</div>
+    <div class="chapter-box">
+        Chapter 64.2
+    </div>
 
-    <a onclick="het()">➡</a>
+    <a onclick="chapSau()">➡</a>
 </div>
-
-
 
 <script>
 const CHAP_HIEN_TAI = 64.2;
 
-/* lưu chap khi mở trang */
+/* lưu chap */
 localStorage.setItem("lastChap", CHAP_HIEN_TAI);
-
-/* bottom bar */
-window.addEventListener("scroll",()=>{
-    const bar=document.getElementById("bar");
-    const y=scrollY;
-    const max=document.body.scrollHeight-innerHeight;
-    if(y<80||y>max-120) bar.classList.add("show");
-    else bar.classList.remove("show");
-});
 
 /* điều hướng */
 function chapTruoc(){
     localStorage.setItem("lastChap", CHAP_HIEN_TAI-1);
-    location.href="https://dichtruyendrop.github.io/change-jinyuan-ss2-chap-64-1.html/";
+    location.href="https://dichtruyendrop.github.io/change-jinyuan-ss2-chap-63-1.html/";
 }
-function goChap(n){
-    localStorage.setItem("lastChap", n);
-    location.href="chap"+n+".html";
+function chapSau(){
+    localStorage.setItem("lastChap", CHAP_HIEN_TAI+1);
+    location.href="https://dichtruyendrop.github.io/change-jinyuan-ss2-chap-64-3.html/";
 }
 function goStory(){
-    location.href="https://dichtruyendrop.github.io/Change--Jinyuan--Ss2/";
+    location.href="https://dichtruyendrop.github.io/DichTruyenDrop/?fbclid=IwT01FWAPttRRleHRuA2FlbQIxMABzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR5EtCu0G_W454YNT8TstVBUyWJFHVL00KZs3aVNSNjOtnmJsfaSmOHLTKSzlQ_aem_oULb1L8HsnSoU4P-I6anxQ";
 }
-function openChap(){popup.style.display="block";}
-function closeChap(){popup.style.display="none";}
-function het(){alert("HẾT RỒI BẠN ƠI !!!");}
 
-/* hiện bottom bar + nút lên đầu */
+/* scroll */
 window.addEventListener("scroll",()=>{
     const bar=document.getElementById("bar");
-    const y=window.scrollY;
-    const max=document.body.scrollHeight-window.innerHeight;
+    const y=scrollY;
+    const max=document.body.scrollHeight-innerHeight;
 
     if(y<80 || y>max-120) bar.classList.add("show");
     else bar.classList.remove("show");
 
-    // nút lên đầu
-    const topBtn=document.querySelector(".to-top");
-    if(y>400) topBtn.classList.add("show");
-    else topBtn.classList.remove("show");
+    const btn=document.querySelector(".to-top");
+    if(y>400) btn.classList.add("show");
+    else btn.classList.remove("show");
 });
 
 function lenDau(){
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    window.scrollTo({top:0,behavior:"smooth"});
 }
+
 
 const fabMain = document.getElementById("fabMain");
 const fabMenu = document.querySelector(".fab-menu");
@@ -414,7 +359,6 @@ musicBtn.onclick = () => {
   }
   playing = !playing;
 };
-
 </script>
 
 </body>
